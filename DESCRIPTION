@@ -1,6 +1,6 @@
 Package: cdccovidview
 Type: Package
-Title: cdccovidview title goes here otherwise CRAN checks fail
+Title: Weekly Surveillance Summary of U.S. COVID-19 Activity
 Version: 0.1.0
 Date: 2020-04-11
 Authors@R: c(
@@ -8,17 +8,25 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A good description goes here otherwise CRAN checks fail.
+Description: The U.S. Centers for Disease Control provides weekly summary and 
+    interpretation of key indicators that have been adapted to track the COVID-19 
+    pandemic in the United States. Tools are provided to retrive data from both
+    COVIDView (<https://www.cdc.gov/coronavirus/2019-ncov/covid-data/covidview/index.html>)
+    and COVID-NET (<https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html>).
 URL: https://git.rud.is/hrbrmstr/cdccovidview
 BugReports: https://gitlab.com/hrbrmstr/cdccovidview/issues
 Encoding: UTF-8
-License: AGPL
+License: MIT + file LICENSE
 Suggests: 
     covr, tinytest
 Depends: 
     R (>= 3.2.0)
 Imports: 
     httr,
-    jsonlite
+    jsonlite,
+    memoise,
+    htmltools,
+    MMWRweek,
+    xml2
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
