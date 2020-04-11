@@ -39,12 +39,14 @@ packageVersion("cdccovidview")
 
 ```
 
-```{r ex-01, fig.width = 10, fig.height = 7}
+```{r ex-01, fig.width = 10, fig.height = 7, cache=TRUE}
 library(cdccovidview)
 library(hrbrthemes)
 library(tidyverse)
 
 hosp <- laboratory_confirmed_hospitalizations()
+
+hosp
 
 c(
   "0-4 yr", "5-17 yr", "18-49 yr", "50-64 yr", "65+ yr", "65-74 yr", "75-84 yr", "85+"
@@ -71,6 +73,46 @@ mutate(hosp, start = mmwr_week_to_date(mmwr_year, mmwr_week)) %>%
   ) +
   theme_ipsum_es(grid="XY")
 
+```
+
+### Clinical Labs
+
+```{r ex-02}
+head(clinical_labs())
+```
+
+### Public Health Labs
+
+```{r ex-03}
+head(public_health_labs_national())
+
+head(public_health_labs_regional())
+```
+
+### Emergency Department Visits
+
+```{r ex-04}
+head(nssp_er_visits_national())
+
+head(nssp_er_visits_regional())
+```
+
+### Mortality
+
+```{r ex-05}
+head(mortality_surveillance_data())
+```
+
+```{r ex-06}
+pd <- provisional_death_counts()
+
+head(pd$by_week)
+
+head(pd$by_age)
+
+head(pd$by_state)
+
+head(pd$by_sex)
 ```
 
 ## cdccovidview Metrics

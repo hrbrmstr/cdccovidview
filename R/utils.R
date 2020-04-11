@@ -1,3 +1,11 @@
+clean_int <- function(x) {
+  suppressWarnings(as.integer(gsub(",", "", x)))
+}
+
+clean_num <- function(x) {
+  suppressWarnings(as.numeric(gsub(",", "", x)))
+}
+
 set_names <- function(object = nm, nm) { names(object) <- nm ; object }
 
 as_tibble <- function(x) {
@@ -9,7 +17,7 @@ tibble <- function(...) {
   as_tibble(data.frame(..., stringsAsFactors = FALSE))
 }
 
-#' Tests whether a raw httr response or character vector has a byte order mark (BOM)
+# Tests whether a raw httr response or character vector has a byte order mark (BOM)
 has_bom <- function(resp, encoding="UTF-8") {
   if (inherits(resp, "response")) {
     F <- resp$content[1:4]
@@ -32,7 +40,7 @@ has_bom <- function(resp, encoding="UTF-8") {
   }
 }
 
-#' Remove byte order mark (BOM) from \code{httr::response} object or character vector
+# Remove byte order mark (BOM) from \code{httr::response} object or character vector
 sans_bom <- function(resp) {
 
   if (inherits(resp, "response")) {
