@@ -13,7 +13,7 @@ nssp_er_visits_regional <- function() {
 
   lapply(regions, function(region){
 
-    reg_tbl <- rvest::html_nodes(pg, xpath=".//table[contains(., 'National')]")
+    reg_tbl <- rvest::html_nodes(pg, xpath=sprintf(".//table[contains(., '%s (')]", region))
     nat_rows <- rvest::html_nodes(reg_tbl, "tbody > tr")
     lapply(nat_rows, function(.x) {
       nat_tds <- rvest::html_nodes(.x, "td")

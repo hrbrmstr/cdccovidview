@@ -60,6 +60,8 @@ The following functions are implemented:
 ## Installation
 
 ``` r
+install.packages("cdccovidview", repos = c("https://cinc.rud.is", "https://cloud.r-project.org/"))
+# or
 remotes::install_git("https://git.rud.is/hrbrmstr/cdccovidview.git")
 # or
 remotes::install_git("https://git.sr.ht/~hrbrmstr/cdccovidview")
@@ -81,7 +83,7 @@ library(cdccovidview)
 
 # current version
 packageVersion("cdccovidview")
-## [1] '0.1.0'
+## [1] '0.1.1'
 ```
 
 ``` r
@@ -182,12 +184,12 @@ head(nssp_er_visits_national())
 
 head(nssp_er_visits_regional())
 ##   week num_fac total_ed_visits visits pct_visits visit_type   region                source year
-## 1   40    3255         2146776  19503      0.009        ili Region 1 Emergency Departments 2019
-## 2   41    3249         2106999  20457      0.010        ili Region 1 Emergency Departments 2019
-## 3   42    3256         2101358  22515      0.011        ili Region 1 Emergency Departments 2019
-## 4   43    3254         2122427  23776      0.011        ili Region 1 Emergency Departments 2019
-## 5   44    3295         2087335  25466      0.012        ili Region 1 Emergency Departments 2019
-## 6   45    3315         2137854  29948      0.014        ili Region 1 Emergency Departments 2019
+## 1   41     202          130377    814      0.006        ili Region 1 Emergency Departments 2019
+## 2   42     202          132385    912      0.007        ili Region 1 Emergency Departments 2019
+## 3   43     202          131866    883      0.007        ili Region 1 Emergency Departments 2019
+## 4   44     203          128256    888      0.007        ili Region 1 Emergency Departments 2019
+## 5   45     203          127466    979      0.008        ili Region 1 Emergency Departments 2019
+## 6   46     202          125306   1188      0.009        ili Region 1 Emergency Departments 2019
 ```
 
 ### Mortality

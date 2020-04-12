@@ -1,7 +1,7 @@
 Package: cdccovidview
 Type: Package
 Title: Weekly Surveillance Summary of U.S. COVID-19 Activity
-Version: 0.1.0
+Version: 0.1.1
 Date: 2020-04-11
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
