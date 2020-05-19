@@ -26,24 +26,22 @@ provisional_death_counts <- function() {
   by_week$group <- NULL
   by_week$indicator <- NULL
   by_week$footnote <- NULL
+  by_week$state <- NULL
   by_week$start_week <- as.Date(by_week$start_week)
   by_week$end_week <- as.Date(by_week$end_week)
   by_week$data_as_of <- as.Date(by_week$data_as_of)
-  colnames(by_week) <- c("data_as_of", "state", "start_week", "end_week",
-                         "covid_deaths", "total_deaths",
-                         "percent_expected_deaths", "pneumonia_deaths",
-                         "pneumonia_and_covid_deaths",
-                         "all_influenza_deaths_j09_j11",
-                         "pneumonia_influenza_and_covid_19_deaths",
+  colnames(by_week) <- c("data_as_of", "start_week", "end_week", "covid_deaths", "total_deaths",
+                         "percent_expected_deaths", "pneumonia_deaths", "pneumonia_and_covid_deaths",
+                         "all_influenza_deaths_j09_j11", "pneumonia_influenza_and_covid_19_deaths",
                          "pneumonia_influenza_and_covid_deaths")
 
   by_age$group <- NULL
   by_age$footnote <- NULL
+  by_age$state <- NULL
   by_age$pneumonia_influenza_and_covid_19_deaths <- NULL
-  colnames(by_age) <- c("data_as_of", "state", "age_group", "start_week", "end_week",
-                        "covid_deaths", "total_deaths",
-                        "percent_expected_deaths", "pneumonia_deaths",
-                        "pneumonia_and_covid_deaths",
+
+  colnames(by_age) <- c("data_as_of", "age_group", "start_week", "end_week", "covid_deaths", "total_deaths",
+                        "percent_expected_deaths", "pneumonia_deaths", "pneumonia_and_covid_deaths",
                         "all_influenza_deaths_j09_j11",
                         "pneumonia_influenza_and_covid_deaths")
   by_age$age_group <- sub("&ndash;", "-", by_age$age_group,
@@ -58,13 +56,12 @@ provisional_death_counts <- function() {
   by_state$footnote <- NULL
   by_state$indicator <- NULL
   by_state$pneumonia_influenza_and_covid_19_deaths <- NULL
+
   by_state$data_as_of <- as.Date(by_state$data_as_of)
   by_state$start_week <- as.Date(by_state$start_week)
   by_state$end_week <- as.Date(by_state$end_week)
-  colnames(by_state) <- c("data_as_of", "state", "start_week", "end_week",
-                          "covid_deaths", "total_deaths",
-                          "percent_expected_deaths", "pneumonia_deaths",
-                          "pneumonia_and_covid_deaths",
+  colnames(by_state) <- c("data_as_of", "state", "start_week", "end_week", "covid_deaths", "total_deaths",
+                          "percent_expected_deaths", "pneumonia_deaths", "pneumonia_and_covid_deaths",
                           "all_influenza_deaths_j09_j11",
                           "pneumonia_influenza_and_covid_deaths")
   by_state <- by_state[by_state$state != "United States", ]
@@ -74,17 +71,19 @@ provisional_death_counts <- function() {
   by_sex$footnote <- NULL
   by_sex$state <- NULL
   by_sex$pneumonia_influenza_and_covid_19_deaths <- NULL
+
   by_sex$data_as_of <- as.Date(by_sex$data_as_of)
   by_sex$start_week <- as.Date(by_sex$start_week)
   by_sex$end_week <- as.Date(by_sex$end_week)
+
+
   colnames(by_sex) <- c("data_as_of", "sex", "start_week", "end_week", "covid_deaths", "total_deaths",
                         "percent_expected_deaths", "pneumonia_deaths", "pneumonia_and_covid_deaths",
                         "all_influenza_deaths_j09_j11",
                         "pneumonia_influenza_and_covid_deaths")
-  by_sex <- by_sex[!grepl("Total deaths", by_sex$sex), ]
 
+  by_sex <- by_sex[!grepl("Total deaths", by_sex$sex), ]
   list(by_week = as_tibble(by_week), by_age = as_tibble(by_age),
        by_state = as_tibble(by_state), by_sex = as_tibble(by_sex))
-
 
 }
